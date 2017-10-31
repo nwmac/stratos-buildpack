@@ -73,8 +73,13 @@ export bower_storage__registry=$CACHE_DIR/bower_cache/registry
 
 echo "-----> Running stratos build compile [`date +%H:%M:%S`]"
 
+ls -al $BUILD_DIR
+
 # Build the console
 $BUILD_DIR/deploy/cloud-foundry/build.sh $BUILD_DIR $CACHE_DIR
+
+echo "Removing folders"
+ls -al $BUILD_DIR
 
 # Remove the node_modules and bower_components folders - only needed for build
 if [ -d "$BUILD_DIR/node_modules" ]; then
